@@ -8,14 +8,45 @@
 </head>
 <body>
 
-    <header>
-        <h1>Nossa Jornada Inesquecível 💑</h1>
-    </header>
+    <section id="music-player">
+        <h2>Seu Player de Músicas 🎧</h2>
+        <div class="player-main-container">
+            <div class="player-core">
+                <div class="track-art-container">
+                    <img id="player-track-art" src="caminho/para/arte-padrao.jpg" alt="Capa do Álbum">
+                </div>
+                <div class="track-info-container">
+                    <h3 id="player-track-title">Playlist</h3>
+                    <p id="player-track-artist">Nosso Som</p>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar-wrapper">
+                        <div id="player-progress-bar"></div>
+                    </div>
+                    <div class="time-stamps">
+                        <span id="player-current-time">0:00</span>
+                        <span id="player-total-duration">0:00</span>
+                    </div>
+                </div>
+                <div class="player-buttons-container">
+                    <button id="player-prev-btn" class="player-btn" aria-label="Faixa Anterior">
+                        <svg role="img" height="24" width="24" viewBox="0 0 16 16"><path d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7h1.6z"></path></svg>
+                    </button>
+                    <button id="player-play-btn" class="player-btn play-button" aria-label="Tocar">
+                        <svg role="img" height="24" width="24" viewBox="0 0 16 16"><path d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7H2.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-2.6z"></path></svg>
+                    </button>
+                    <button id="player-next-btn" class="player-btn" aria-label="Próxima Faixa">
+                        <svg role="img" height="24" width="24" viewBox="0 0 16 16"><path d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-1.6z"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <audio id="player-audio-source"></audio>
+    </section>
 
     <main>
         <section id="video-catalog">
             <h2>Nossos Momentos em Vídeo 🎬</h2>
-            
             <div class="video-navigation">
                 <button id="prev-video-btn" aria-label="Vídeo Anterior">⬅️ Anterior</button>
                 <div class="video-catalog-container">
@@ -23,10 +54,10 @@
                     <video src="caminho/para/seu/video2.mp4" controls loop muted class="catalog-video"></video>
                     <video src="caminho/para/seu/video3.mp4" controls loop muted class="catalog-video"></video>
                     <video src="caminho/para/seu/video4.mp4" controls loop muted class="catalog-video"></video>
-                    </div>
+                </div>
                 <button id="next-video-btn" aria-label="Próximo Vídeo">Próximo ➡️</button>
             </div>
-            </section>
+        </section>
 
         <section id="countdown-timer">
             <h2>Tempo Juntos ⏳</h2>
@@ -51,12 +82,15 @@
                     Este espaço é todo de vocês!
                 </p>
             </article>
-        </main>
+        </section>
+        
+    </main>
 
     <footer>
-        <p>&copy; <span id="currentYear"></span> [Seus Nomes Aqui]. Feito com muito Amor e HTML! 🥰</p>
+        <p>&copy; <span id="currentYear"></span> [Seus Nomes Aqui]. Feito com muito Amor!</p>
     </footer>
 
+    <script src="playlist-data.js"></script>
     <script src="scripts.js"></script>
 </body>
 </html>

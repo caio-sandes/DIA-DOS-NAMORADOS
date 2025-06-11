@@ -1,4 +1,10 @@
+/* ======================================================= */
+/* ✨ ARQUIVO DE ESTILOS FINAL DEFINITIVO - Nossa Jornada ✨ */
+/* ======================================================= */
+
+
 /* Estilos Globais e Reset Básico */
+/* ------------------------------------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +20,8 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
 
-    background-image: url('imagens/teste7.jpg'); /* ❗❗ ATENÇÃO MÁXIMA A ESTE CAMINHO ❗❗ */
+    /* Imagem de fundo do site */
+    background-image: url('imagens/teste7.jpg'); /* ❗ Lembre-se de corrigir o caminho da imagem! */
     background-color: #dfbba3;
     background-size: cover;
     background-position: center center;
@@ -30,6 +37,9 @@ body {
     text-align: center;
 }
 
+
+/* Layout Principal (Main, Footer) */
+/* ------------------------------------------------------- */
 main {
     width: 90%;
     max-width: 1000px;
@@ -37,112 +47,6 @@ main {
     background-color: transparent;
     padding: 20px;
     border-radius: 8px;
-}
-
-header {
-    width: 100%;
-    padding: 20px 0;
-    background-color: transparent;
-}
-
-h1, h2 {
-    color: #fff; 
-    margin-bottom: 20px;
-    text-align: center;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); 
-}
-
-/* ESTILOS DO CATÁLOGO DE VÍDEOS E NAVEGAÇÃO */
-#video-catalog {
-    margin-bottom: 30px;
-}
-
-.video-navigation {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 15px;
-    width: 100%;
-}
-
-/* BOTÕES MINIMALISTAS */
-#prev-video-btn,
-#next-video-btn {
-    background-color: rgba(0, 0, 0, 0.2);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    padding: 10px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9em;
-    font-weight: normal;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-    flex-shrink: 0;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-}
-
-#prev-video-btn:hover,
-#next-video-btn:hover {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-color: rgba(255, 255, 255, 0.8);
-}
-
-.video-catalog-container {
-    display: flex;
-    flex-direction: row;
-    overflow-x: hidden;
-    width: clamp(400px, 85vw, 700px);
-    justify-content: flex-start;
-    padding: 0;
-}
-
-.catalog-video {
-    flex-shrink: 0;
-    width: clamp(400px, 85vw, 700px);
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    margin-right: 20px;
-    border: none;
-    padding: 0;
-}
-.catalog-video:last-child {
-    margin-right: 0;
-}
-
-#countdown-timer {
-    margin-bottom: 30px;
-}
-
-#timer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 4px;
-    font-size: 1em;
-    color: #fff;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-#timer span {
-    padding: 2px 4px;
-    border-radius: 3px;
-}
-
-#declaration {
-    margin-bottom: 30px;
-}
-/* ✨ ALTERAÇÃO NA COR E SOMBRA DO TEXTO DA DECLARAÇÃO ✨ */
-#declaration article {
-    text-align: center;
-    color: #fff; /* Texto branco */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra escura para legibilidade */
-}
-#declaration article p {
-    margin-bottom: 1em;
-    line-height: 1.8;
-    /* A cor e text-shadow serão herdadas de #declaration article */
 }
 
 footer {
@@ -153,3 +57,158 @@ footer {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
     background-color: transparent;
 }
+
+
+/* Tipografia Principal */
+/* ------------------------------------------------------- */
+h1, h2 {
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+
+/* SEÇÃO: PLAYER DE MÚSICA (CABEÇALHO) */
+/* ------------------------------------------------------- */
+#music-player {
+    width: 90%;
+    max-width: 750px;
+    margin: 30px auto 20px auto;
+}
+/* Esconde o título H2 de dentro do player */
+#music-player > h2 {
+    display: none;
+}
+
+.player-main-container {
+    display: flex;
+    justify-content: center;
+}
+
+/* Corpo do player - A BARRA PRINCIPAL (Compacta) */
+.player-core {
+    width: 100%;
+    background-color: #282828;
+    border-radius: 8px;
+    padding: 8px 12px;
+    padding-bottom: 15px; 
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+}
+
+/* Lado Esquerdo: Capa e Info da Música */
+.track-art-container {
+    flex-shrink: 0;
+}
+#player-track-art {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+.track-info-container {
+    text-align: left;
+    flex-shrink: 0;
+    margin-right: auto;
+}
+#player-track-title {
+    font-size: 0.85em;
+    font-weight: normal;
+    margin: 0;
+    color: #fff;
+    text-shadow: none;
+}
+#player-track-artist {
+    font-size: 0.7em;
+    color: #b3b3b3;
+    margin: 0;
+}
+
+/* Direita: Botões de Controle */
+.player-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+.player-btn {
+    background-color: transparent;
+    border: none;
+    color: #b3b3b3;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+.player-btn:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+.player-btn svg {
+    fill: currentColor;
+    width: 18px;
+    height: 18px;
+}
+.player-btn.play-button {
+    background-color: #fff;
+    color: #181818;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.player-btn.play-button svg {
+    width: 16px;
+    height: 16px;
+}
+.player-btn.play-button:hover {
+    transform: scale(1.05);
+    background-color: #fff;
+    color: #181818;
+}
+
+/* Fundo: Barra de Progresso e Tempos */
+.progress-container {
+    position: absolute;
+    bottom: 4px;
+    left: 10px;
+    right: 10px;
+    width: auto;
+}
+.progress-bar-wrapper {
+    width: 100%;
+    height: 4px;
+    background-color: #535353;
+    border-radius: 2px;
+    cursor: pointer;
+}
+#player-progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 2px;
+}
+.time-stamps {
+    display: none;
+}
+
+/* SEÇÕES RESTANTES (Vídeo, Timer, Declaração) */
+/* ------------------------------------------------------- */
+#video-catalog, #countdown-timer, #declaration {
+    margin-bottom: 30px;
+}
+.video-navigation { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px; width: 100%; }
+#prev-video-btn, #next-video-btn { background-color: rgba(0, 0, 0, 0.2); color: white; border: 1px solid rgba(255, 255, 255, 0.5); padding: 10px 15px; border-radius: 6px; cursor: pointer; font-size: 0.9em; font-weight: normal; transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; flex-shrink: 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+#prev-video-btn:hover, #next-video-btn:hover { background-color: rgba(0, 0, 0, 0.5); border-color: rgba(255, 255, 255, 0.8); }
+.video-catalog-container { display: flex; flex-direction: row; overflow-x: hidden; width: clamp(400px, 85vw, 700px); justify-content: flex-start; padding: 0; }
+.catalog-video { flex-shrink: 0; width: clamp(400px, 85vw, 700px); height: auto; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-right: 20px; border: none; padding: 0; }
+.catalog-video:last-child { margin-right: 0; }
+#timer { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 4px; font-size: 1em; color: #fff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); }
+#timer span { padding: 2px 4px; border-radius: 3px; }
+#declaration article { text-align: center; color: #fff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); }
+#declaration article p { margin-bottom: 1em; line-height: 1.8; }
