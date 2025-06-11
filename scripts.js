@@ -1,6 +1,6 @@
 // --- Início: Função do Temporizador de Relacionamento ---
 function updateTimer() {
-    const startDate = new Date(2023, 2, 29, 3, 0, 0); // Data: 29 de Março de 2023, 03:00
+    const startDate = new Date(2023, 2, 29, 3, 0, 0);
     const now = new Date();
     let diff = now - startDate;
 
@@ -127,7 +127,7 @@ function setupMusicPlayer() {
     const progressBar = document.getElementById('player-progress-bar');
     const currentTimeEl = document.getElementById('player-current-time');
     const totalDurationEl = document.getElementById('player-total-duration');
-    const playerSection = document.getElementById('music-player'); // Seleciona a seção do player
+    const playerSection = document.getElementById('music-player');
 
     if(!audio || typeof musicPlaylist === 'undefined' || musicPlaylist.length === 0) {
         if (playerSection) playerSection.style.display = 'none';
@@ -141,16 +141,16 @@ function setupMusicPlayer() {
     const pauseIconSVG = `<svg role="img" height="24" width="24" viewBox="0 0 16 16"><path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.86 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path></svg>`; // Play
 
     function loadTrack(index) {
+        if (!musicPlaylist[index]) return;
         trackIndex = index;
         const track = musicPlaylist[trackIndex];
         const artSrc = track.artSrc || "caminho/para/arte-padrao.jpg";
-
+        
         trackArt.src = artSrc;
         trackTitle.textContent = track.title;
         trackArtist.textContent = track.artist;
         audio.src = track.audioSrc;
         
-        // ✨ ATUALIZAÇÃO: Aplica a capa como imagem de fundo do player ✨
         if (playerSection) {
             playerSection.style.backgroundImage = `url('${artSrc}')`;
         }
