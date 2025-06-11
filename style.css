@@ -1,5 +1,5 @@
 /* ======================================================= */
-/* ✨ ARQUIVO DE ESTILOS FINAL DEFINITIVO - Nossa Jornada ✨ */
+/* ✨ ARQUIVO DE ESTILOS FINAL CORRIGIDO (v5) - Nossa Jornada ✨ */
 /* ======================================================= */
 
 
@@ -20,8 +20,7 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
 
-    /* Imagem de fundo do site */
-    background-image: url('imagens/teste7.jpg'); /* ❗ Lembre-se de corrigir o caminho da imagem! */
+    background-image: url('imagens/teste7.jpg');
     background-color: #dfbba3;
     background-size: cover;
     background-position: center center;
@@ -75,8 +74,28 @@ h1, h2 {
     width: 90%;
     max-width: 750px;
     margin: 30px auto 20px auto;
+    
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
-/* Esconde o título H2 de dentro do player */
+#music-player::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+    transition: background-image 0.5s ease-in-out;
+}
+
 #music-player > h2 {
     display: none;
 }
@@ -86,30 +105,19 @@ h1, h2 {
     justify-content: center;
 }
 
-/* Corpo do player - A BARRA PRINCIPAL (Compacta) */
 .player-core {
     width: 100%;
-    background-color: #282828;
-    border-radius: 8px;
-    padding: 8px 12px;
-    padding-bottom: 15px; 
+    background-color: transparent;
+    padding: 8px 12px 15px 12px; 
     color: #fff;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
     display: flex;
     align-items: center;
     gap: 12px;
     position: relative;
 }
 
-/* Lado Esquerdo: Capa e Info da Música */
 .track-art-container {
-    flex-shrink: 0;
-}
-#player-track-art {
-    width: 48px;
-    height: 48px;
-    object-fit: cover;
-    border-radius: 4px;
+    display: none;
 }
 .track-info-container {
     text-align: left;
@@ -118,10 +126,10 @@ h1, h2 {
 }
 #player-track-title {
     font-size: 0.85em;
-    font-weight: normal;
+    font-weight: bold;
     margin: 0;
     color: #fff;
-    text-shadow: none;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
 }
 #player-track-artist {
     font-size: 0.7em;
@@ -129,7 +137,6 @@ h1, h2 {
     margin: 0;
 }
 
-/* Direita: Botões de Controle */
 .player-buttons-container {
     display: flex;
     justify-content: center;
@@ -168,11 +175,8 @@ h1, h2 {
 }
 .player-btn.play-button:hover {
     transform: scale(1.05);
-    background-color: #fff;
-    color: #181818;
 }
 
-/* Fundo: Barra de Progresso e Tempos */
 .progress-container {
     position: absolute;
     bottom: 4px;
@@ -183,7 +187,7 @@ h1, h2 {
 .progress-bar-wrapper {
     width: 100%;
     height: 4px;
-    background-color: #535353;
+    background-color: rgba(255,255,255,0.3);
     border-radius: 2px;
     cursor: pointer;
 }
@@ -197,18 +201,103 @@ h1, h2 {
     display: none;
 }
 
-/* SEÇÕES RESTANTES (Vídeo, Timer, Declaração) */
+
+/* sección 🎬 Catálogo de Vídeos */
 /* ------------------------------------------------------- */
-#video-catalog, #countdown-timer, #declaration {
+#video-catalog {
     margin-bottom: 30px;
 }
-.video-navigation { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px; width: 100%; }
-#prev-video-btn, #next-video-btn { background-color: rgba(0, 0, 0, 0.2); color: white; border: 1px solid rgba(255, 255, 255, 0.5); padding: 10px 15px; border-radius: 6px; cursor: pointer; font-size: 0.9em; font-weight: normal; transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; flex-shrink: 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
-#prev-video-btn:hover, #next-video-btn:hover { background-color: rgba(0, 0, 0, 0.5); border-color: rgba(255, 255, 255, 0.8); }
-.video-catalog-container { display: flex; flex-direction: row; overflow-x: hidden; width: clamp(400px, 85vw, 700px); justify-content: flex-start; padding: 0; }
-.catalog-video { flex-shrink: 0; width: clamp(400px, 85vw, 700px); height: auto; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-right: 20px; border: none; padding: 0; }
-.catalog-video:last-child { margin-right: 0; }
-#timer { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 4px; font-size: 1em; color: #fff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); }
-#timer span { padding: 2px 4px; border-radius: 3px; }
-#declaration article { text-align: center; color: #fff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); }
-#declaration article p { margin-bottom: 1em; line-height: 1.8; }
+
+.video-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+#prev-video-btn,
+#next-video-btn {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: normal;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    flex-shrink: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+#prev-video-btn:hover,
+#next-video-btn:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.video-catalog-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+    width: clamp(400px, 85vw, 700px);
+    justify-content: flex-start;
+    padding: 0;
+}
+
+/* Vídeo individual com proporção e ajuste definidos */
+.catalog-video {
+    flex-shrink: 0;
+    width: clamp(400px, 85vw, 700px);
+    /* ✨ ALTERAÇÃO: Removido height:auto e adicionadas estas 3 linhas ✨ */
+    aspect-ratio: 16 / 9;         /* 1. Força o "palco" a ter proporção 16:9 */
+    object-fit: contain;          /* 2. Faz o vídeo caber dentro, mantendo sua proporção */
+    background-color: #000;       /* 3. Garante que o fundo/barras laterais sejam pretos */
+
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-right: 20px;
+    border: none;
+    padding: 0;
+}
+.catalog-video:last-child {
+    margin-right: 0;
+}
+
+
+/* sección ⏳ Temporizador */
+/* ------------------------------------------------------- */
+#countdown-timer {
+    margin-bottom: 30px;
+}
+#timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    font-size: 1em;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+#timer span {
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+
+/* sección ❤️ Declaração */
+/* ------------------------------------------------------- */
+#declaration {
+    margin-bottom: 30px;
+}
+#declaration article {
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+#declaration article p {
+    margin-bottom: 1em;
+    line-height: 1.8;
+}

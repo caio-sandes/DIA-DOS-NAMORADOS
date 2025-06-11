@@ -1,6 +1,6 @@
 // --- Início: Função do Temporizador de Relacionamento ---
 function updateTimer() {
-    const startDate = new Date(2023, 2, 29, 3, 0, 0);
+    const startDate = new Date(2023, 2, 29, 3, 0, 0); // Data: 29 de Março de 2023, 03:00
     const now = new Date();
     let diff = now - startDate;
 
@@ -127,9 +127,9 @@ function setupMusicPlayer() {
     const progressBar = document.getElementById('player-progress-bar');
     const currentTimeEl = document.getElementById('player-current-time');
     const totalDurationEl = document.getElementById('player-total-duration');
+    const playerSection = document.getElementById('music-player'); // Seleciona a seção do player
 
     if(!audio || typeof musicPlaylist === 'undefined' || musicPlaylist.length === 0) {
-        const playerSection = document.getElementById('music-player');
         if (playerSection) playerSection.style.display = 'none';
         return;
     }
@@ -143,10 +143,17 @@ function setupMusicPlayer() {
     function loadTrack(index) {
         trackIndex = index;
         const track = musicPlaylist[trackIndex];
-        trackArt.src = track.artSrc || "caminho/para/arte-padrao.jpg";
+        const artSrc = track.artSrc || "caminho/para/arte-padrao.jpg";
+
+        trackArt.src = artSrc;
         trackTitle.textContent = track.title;
         trackArtist.textContent = track.artist;
         audio.src = track.audioSrc;
+        
+        // ✨ ATUALIZAÇÃO: Aplica a capa como imagem de fundo do player ✨
+        if (playerSection) {
+            playerSection.style.backgroundImage = `url('${artSrc}')`;
+        }
     }
 
     function playTrack() {
@@ -172,7 +179,6 @@ function setupMusicPlayer() {
         loadTrack(trackIndex);
         if(isPlaying) playTrack();
     }
-
 
     function updateProgress(e) {
         const { duration, currentTime } = e.srcElement;
@@ -211,7 +217,9 @@ function setupMusicPlayer() {
 function initializeAllScripts() {
     updateTimer(); 
     setInterval(updateTimer, 1000); 
+    
     setupVideoSlider();
+    
     setupMusicPlayer(); 
 }
 
