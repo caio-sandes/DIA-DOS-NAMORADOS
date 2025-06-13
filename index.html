@@ -8,25 +8,81 @@
 </head>
 <body>
 
-    <header>
-        <h1>Nossa Jornada Inesquecível 💑</h1>
-    </header>
+    <div id="splash-screen">
+        <div class="splash-content">
+            <img src="caioeana/login.jpeg" alt="Sua Foto" class="splash-photo">
+            <p class="splash-message">Está preparada?</p>
+            <button id="enter-site-btn">Sim ❤️</button>
+        </div>
+    </div>
+    <div class="decorative-flowers">
+        <img src="caioeana/1.jpeg" alt="Flor decorativa 1" class="flower flower-1">
+        <img src="caioeana/10.jpg" alt="Flor decorativa 2" class="flower flower-2">
+        <img src="caioeana/4.jpeg" alt="Flor decorativa 3" class="flower flower-3">
+        <img src="caioeana/5.jpeg" alt="Flor decorativa 4" class="flower flower-4">
+        <img src="caioeana/7.jpg" alt="Flor decorativa 5" class="flower flower-5">
+        <img src="caioeana/8.jpg" alt="Flor decorativa 6" class="flower flower-6">
+        <img src="caioeana/9.jpg" alt="Flor decorativa 7" class="flower flower-7">
+        <img src="caioeana/2.jpeg" alt="Flor decorativa 8" class="flower flower-8">
+        <img src="caioeana/3.jpeg" alt="Flor decorativa 9" class="flower flower-9">
+        <img src="caioeana/6.jpg" alt="Flor decorativa 10" class="flower flower-10">
+    </div>
+
+    <section id="music-player">
+        <h2>Seu Player de Músicas 🎧</h2>
+        <div class="player-main-container">
+            <div class="player-core">
+                <div class="track-art-container">
+                    <img id="player-track-art" src="caminho/para/arte-padrao.jpg" alt="Capa do Álbum">
+                </div>
+                <div class="track-info-container">
+                    <h3 id="player-track-title">Playlist</h3>
+                    <p id="player-track-artist">Nosso Som</p>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar-wrapper">
+                        <div id="player-progress-bar"></div>
+                    </div>
+                    <div class="time-stamps">
+                        <span id="player-current-time">0:00</span>
+                        <span id="player-total-duration">0:00</span>
+                    </div>
+                </div>
+                <div class="player-buttons-container">
+                    <button id="player-prev-btn" class="player-btn" aria-label="Faixa Anterior">
+                        <svg role="img" height="24" width="24" viewBox="0 0 16 16"><path d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7h1.6z"></path></svg>
+                    </button>
+                    <button id="player-play-btn" class="player-btn play-button" aria-label="Tocar">
+                        <svg role="img" height="24" width="24" viewBox="0 0 16 16"><path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.86 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path></svg>
+                    </button>
+                    <button id="player-next-btn" class="player-btn" aria-label="Próxima Faixa">
+                        <svg role="img" height="24" width="24" viewBox="0 0 16 16"><path d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-1.6z"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <audio id="player-audio-source"></audio>
+    </section>
 
     <main>
         <section id="video-catalog">
-            <h2>Nossos Momentos em Vídeo 🎬</h2>
-            
+            <h2>Nossos Momentos 🎬</h2>
             <div class="video-navigation">
-                <button id="prev-video-btn" aria-label="Vídeo Anterior">⬅️ Anterior</button>
+                <div class="story-progress-bars"></div>
+                <button id="prev-video-btn" aria-label="Vídeo Anterior">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+</button>
                 <div class="video-catalog-container">
-                    <video src="caminho/para/seu/video1.mp4" controls loop muted class="catalog-video"></video>
-                    <video src="caminho/para/seu/video2.mp4" controls loop muted class="catalog-video"></video>
-                    <video src="caminho/para/seu/video3.mp4" controls loop muted class="catalog-video"></video>
-                    <video src="caminho/para/seu/video4.mp4" controls loop muted class="catalog-video"></video>
-                    </div>
-                <button id="next-video-btn" aria-label="Próximo Vídeo">Próximo ➡️</button>
+                    <video src="videos/2023-12-24-191420108~2.mp4" controls muted class="catalog-video"></video>
+                    <video src="videos/VID_20231231_200251~2.mp4" controls muted class="catalog-video"></video>
+                    <video src="videos/WhatsApp Video 2025-06-11 at 01.47.49.mp4" controls muted class="catalog-video"></video>
+                    <video src="videos/WhatsApp Video 2025-06-11 at 01.49.49.mp4" controls muted class="catalog-video"></video>
+                </div>
+                <button id="next-video-btn" aria-label="Próximo Vídeo">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</button>
             </div>
-            </section>
+        </section>
 
         <section id="countdown-timer">
             <h2>Tempo Juntos ⏳</h2>
@@ -41,22 +97,28 @@
         </section>
 
         <section id="declaration">
-            <h2>Nossa História, Nossas Palavras ❤️</h2>
+            <h2>Nossa História ❤️</h2>
             <article>
-                <p>
-                    Escreva aqui a sua linda declaração... 📜
-                </p>
-                <p>
-                    Use quantos parágrafos precisar para expressar todo o seu sentimento.
-                    Este espaço é todo de vocês!
-                </p>
+                <p>Quando te conheci, eu era uma pessoa muito triste. Estava perdido, sem ter um norte, sem saber qual rumo seguir. Aquela pessoa sem expectativa para o futuro. E  te conhecer foi o início da minha evolução.
+                    <p>Logo que começamos a trocar mensagens, percebi o quão especial você era. Seu jeito brincalhona, seu sorriso espontâneo e seu carisma logo me conquistou e cada dia que passava, falar com você sempre era a melhor parte do meu dia. E não demorou muito até eu querer muito te conhecer pessoalmente, ver de perto quem era essa pessoa que eu amava bastante.</p>
+                    <p>Nosso primeiro encontro, apesar de tão rápido e inesperado, foi o melhor se não o maior acerto da minha vida, kkkk. "Só Deus sabe quando íamos nos ver se não fosse aquele dia". Quando te vi lá, sentada no shopping, minha primeira impressão foi: "Nossa, que mulher perfeita. Que morena linda. Estorei no norte, kkk!" Mesmo com toda minha timidez, a conversa com você fluiu tão naturalmente que parecia que já tínhamos nos encontrado várias vezes ” talvez em outra vida ”.</p>
+                   <p> E dito e certo: depois daquilo, eu só queria te ver mais e mais. Começamos a nos encontrar com mais frequência. Teve nosso encontro no parque , “o do nosso primeiro beijo”. E mesmo você dizendo que o beijo foi 4/10 (kkkkk), foi ali que acho que decidimos, sem falar, que íamos continuar nos vendo. “Eu até troquei de faculdade só pra poder ficar mais perto de você.”</p>
+                    <p>Apesar de tudo que você diz sobre “tratar ficante como ficante”, você sempre se importou muito comigo. E eu sempre fui bobo por você e cada vez mais bobo. Me apaixonei de verdade. E lembro até hoje do dia em que te pedi em namoro: nunca fiquei tão nervoso na minha vida. Tanta coisa que eu queria dizer e no fim... mal consegui falar uma frase sem gaguejar, kkkkkk.</p>
+                    <p>Bom, foi aí que minha vida decolou. Você me mudou por completo. Amadureci no meu jeito de agir e pensar. E você sabe o quanto eu errei até conseguir acertar. É verdade o que dizem: a mulher certa transforma o homem. (Mas também não se ache kkkk).</p>
+                    <p>Levar a vida com você sempre foi fácil, leve e despretensiosa. E tenho certeza que te pedir em noivado no mesmo parque onde nos conhecemos, depois de tantas pessoas nos abençoando que realmente foi a melhor decisão da minha vida. Porque, sinceramente, não quero nada mais do que construir uma família ao seu lado.</p>
+                    
+                    Você é a mulher da minha vida, minha melhor amiga, minha parceira, minha companheira. E eu não poderia estar mais feliz por ter você ao meu lado.
+                    </p>
             </article>
-        </main>
+        </section>
+        
+    </main>
 
     <footer>
-        <p>&copy; <span id="currentYear"></span> [Seus Nomes Aqui]. Feito com muito Amor e HTML! 🥰</p>
+        <p>&copy; <span id="currentYear"></span> CAIO & ANA. Feito com muito Amor!</p>
     </footer>
 
+    <script src="playlist-data.js"></script>
     <script src="scripts.js"></script>
 </body>
 </html>
