@@ -1,5 +1,5 @@
 /* ======================================================= */
-/* ✨ ARQUIVO DE ESTILOS FINAL E ORGANIZADO - Nossa Jornada ✨ */
+/* ✨ ARQUIVO DE ESTILOS FINAL (Fotos Responsivas) ✨      */
 /* ======================================================= */
 
 
@@ -37,6 +37,67 @@ body {
 }
 
 
+/* sección ✨ Tela de Entrada (Splash Screen) */
+/* ------------------------------------------------------- */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+}
+#splash-screen.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.splash-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+.splash-photo {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 5px 30px rgba(0,0,0,0.4);
+}
+.splash-message {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+#enter-site-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+#enter-site-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+
 /* sección 🌸 Fotos Decorativas (Estilo Polaroid) */
 /* ------------------------------------------------------- */
 .flower {
@@ -44,10 +105,10 @@ body {
     z-index: 1;
     pointer-events: none;
     background-color: #fff;
-    padding: 10px;
-    padding-bottom: 40px;
+    padding: 8px;
+    padding-bottom: 30px;
     border-radius: 2px;
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
     border: 1px solid #eee;
 }
 .flower img {
@@ -55,15 +116,19 @@ body {
     width: 100%;
     height: auto;
 }
-.flower-1 { width: 150px; top: 10%; left: 5%; transform: rotate(-15deg); }
-.flower-2 { width: 180px; top: 50%; right: 12%; transform: rotate(10deg); }
-.flower-3 { width: 200px; bottom: 5%; left: 10%; transform: rotate(8deg); }
-.flower-4 { width: 130px; top: 25%; right: 15%; transform: rotate(-8deg); }
-.flower-5 { width: 180px; bottom: 15%; right: 2%; transform: rotate(20deg); }
-.flower-6 { width: 160px; top: 55%; left: 2%; transform: rotate(5deg); }
-.flower-7 { width: 90px; top: 8%; right: 30%; transform: rotate(12deg); }
-.flower-8 { width: 140px; bottom: 2%; left: 45%; transform: rotate(-5deg); }
-.flower-9 { width: 110px; top: 85%; left: 25%; transform: rotate(15deg); }
+/* Posições, tamanhos e rotações individuais para cada foto */
+/* Cantos Esquerdo */
+.flower-1 { width: 8vw; min-width: 100px; top: 10%; left: 2%; transform: rotate(-10deg); }
+.flower-3 { width: 10vw; min-width: 100px; bottom: 1%; left: 5%; transform: rotate(5deg); }
+.flower-6 { width: 9vw; min-width: 90px; top: 60%; left: 1%; transform: rotate(2deg); }
+.flower-9 { width: 7vw; min-width: 70px; bottom: 18%; left: 0.5%; transform: rotate(10deg); }
+/* Cantos Direito */
+.flower-2 { width: 11vw; min-width: 110px; top:37%; left: 1%; transform: rotate(8deg); }
+.flower-4 { width: 8vw; min-width: 80px; bottom: 35%; right: 1%; transform: rotate(-5deg); }
+.flower-5 { width: 12vw; min-width: 120px; top: 8%; right: 0%; transform: rotate(15deg); }
+.flower-7 { width: 6vw; min-width: 60px; bottom: 2%; right: 4%; transform: rotate(-8deg); }
+.flower-8 { width: 9vw; min-width: 90px; top: 40%; right: 2%; transform: rotate(3deg); }
+.flower-10 { width: 8vw; min-width: 70px; top: 78%; right: 0.5%; transform: rotate(-12deg); }
 
 
 /* sección 🏗️ Layout Principal (Main, Footer) */
@@ -78,7 +143,6 @@ main {
     position: relative;
     z-index: 2;
 }
-
 footer {
     width: 100%;
     padding: 20px 0;
@@ -109,175 +173,84 @@ h2 {
 /* sección 🎵 Player de Músicas (Cabeçalho) */
 /* ------------------------------------------------------- */
 #music-player {
-    width: 90%;
-    max-width: 750px;
-    margin: 30px auto 20px auto;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-    z-index: 2;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    width: 90%; max-width: 750px; margin: 30px auto 20px auto;
+    background-size: cover; background-position: center center; background-repeat: no-repeat;
+    border-radius: 8px; overflow: hidden; position: relative;
+    z-index: 2; box-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 #music-player::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: -1;
-    transition: background-image 0.5s ease-in-out;
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); z-index: -1; transition: background-image 0.5s ease-in-out;
 }
-#music-player > h2 {
-    display: none;
-}
-.player-main-container {
-    display: flex;
-    justify-content: center;
-}
-.player-core {
-    width: 100%;
-    background-color: transparent;
-    padding: 8px 12px 15px 12px;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    position: relative;
-}
-.track-art-container {
-    display: none;
-}
-.track-info-container {
-    text-align: left;
-    flex-shrink: 0;
-    margin-right: auto;
-}
-#player-track-title {
-    font-size: 0.85em;
-    font-weight: bold;
-    margin: 0;
-    color: #fff;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-}
-#player-track-artist {
-    font-size: 0.7em;
-    color: #b3b3b3;
-    margin: 0;
-}
-.player-buttons-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-}
-.player-btn {
-    background-color: transparent;
-    border: none;
-    color: #b3b3b3;
-    cursor: pointer;
-    transition: color 0.2s ease, transform 0.2s ease;
-}
-.player-btn:hover {
-    color: #fff;
-    transform: scale(1.1);
-}
-.player-btn svg {
-    fill: currentColor;
-    width: 18px;
-    height: 18px;
-}
-.player-btn.play-button {
-    background-color: #fff;
-    color: #181818;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.player-btn.play-button:hover {
-    transform: scale(1.05);
-}
-.progress-container {
-    position: absolute;
-    bottom: 4px;
-    left: 10px;
-    right: 10px;
-    width: auto;
-}
-.progress-bar-wrapper {
-    width: 100%;
-    height: 4px;
-    background-color: rgba(255,255,255,0.3);
-    border-radius: 2px;
-    cursor: pointer;
-}
-#player-progress-bar {
-    width: 0%;
-    height: 100%;
-    background-color: #fff;
-    border-radius: 2px;
-}
-.time-stamps {
-    display: none;
-}
+#music-player > h2 { display: none; }
+.player-main-container { display: flex; justify-content: center; }
+.player-core { width: 100%; background-color: transparent; padding: 8px 12px 15px 12px;  color: #fff; display: flex; align-items: center; gap: 12px; position: relative; }
+.track-art-container { display: none; }
+.track-info-container { text-align: left; flex-shrink: 0; margin-right: auto; }
+#player-track-title { font-size: 0.85em; font-weight: bold; margin: 0; color: #fff; text-shadow: 1px 1px 2px rgba(0,0,0,0.4); }
+#player-track-artist { font-size: 0.7em; color: #b3b3b3; margin: 0; }
+.player-buttons-container { display: flex; justify-content: center; align-items: center; gap: 16px; }
+.player-btn { background-color: transparent; border: none; color: #b3b3b3; cursor: pointer; transition: color 0.2s ease, transform 0.2s ease; }
+.player-btn:hover { color: #fff; transform: scale(1.1); }
+.player-btn svg { fill: currentColor; width: 18px; height: 18px; }
+.player-btn.play-button { background-color: #fff; color: #181818; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
+.player-btn.play-button:hover { transform: scale(1.05); }
+.progress-container { position: absolute; bottom: 4px; left: 10px; right: 10px; width: auto; }
+.progress-bar-wrapper { width: 100%; height: 4px; background-color: rgba(255,255,255,0.3); border-radius: 2px; cursor: pointer; }
+#player-progress-bar { width: 0%; height: 100%; background-color: #fff; border-radius: 2px; }
+.time-stamps { display: none; }
 
 
-/* sección 🎬 Catálogo de Vídeos (Formato Reels) */
+/* sección 🎬 Catálogo de Vídeos (Estilo "Stories") */
 /* ------------------------------------------------------- */
 #video-catalog {
     margin-bottom: 30px;
 }
-/* Contêiner que envolve o palco do vídeo e os botões */
 .video-navigation {
     position: relative;
-    width: 360px; /* Mesma largura fixa do palco do vídeo */
-    margin: 0 auto; /* Centraliza o conjunto de navegação */
+    width: 400px;
+    height: 600px;
+    margin: 0 auto;
 }
-/* Botões de navegação flutuantes */
-#prev-video-btn,
-#next-video-btn {
+#prev-video-btn, #next-video-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.4);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    z-index: 12;
+    background: none;
+    border: none;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    padding: 10px;
+    transition: transform 0.2s ease;
 }
-#prev-video-btn:hover,
-#next-video-btn:hover {
-    background-color: rgba(0,0,0,0.7);
+#prev-video-btn:hover, #next-video-btn:hover {
+    transform: translateY(-50%) scale(1.15);
 }
 #prev-video-btn {
-    left: -50px; /* Posição do botão esquerdo (ajuste se necessário) */
+    left: 10px;
 }
 #next-video-btn {
-    right: -50px; /* Posição do botão direito (ajuste se necessário) */
+    right: 10px;
 }
-/* O "Palco" do vídeo */
+#prev-video-btn svg, #next-video-btn svg {
+    width: 32px;
+    height: 32px;
+    stroke: #ffffff;
+    stroke-width: 2.5;
+    stroke-linecap: "round";
+    stroke-linejoin: "round";
+    fill: "none";
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.7));
+}
 .video-catalog-container {
-    width: 360px;
-    height: 570px;
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: row;
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     scroll-snap-type: x mandatory;
 }
-/* Cada vídeo individual */
 .catalog-video {
     width: 100%;
     height: 100%;
@@ -285,11 +258,33 @@ h2 {
     object-fit: cover;
     scroll-snap-align: start;
 }
+.story-progress-bars {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    z-index: 11;
+    display: flex;
+    gap: 3px;
+    height: 2.5px;
+}
+.progress-segment {
+    flex-grow: 1;
+    background-color: rgba(255, 255, 255, 0.35);
+    border-radius: 2px;
+}
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
 
 
-/* sección ⏳ Temporizador */
+/* sección ⏳ Temporizador e ❤️ Declaração */
 /* ------------------------------------------------------- */
-#countdown-timer {
+#countdown-timer, #declaration {
     margin-bottom: 30px;
 }
 #timer {
@@ -306,13 +301,6 @@ h2 {
     padding: 2px 4px;
     border-radius: 3px;
 }
-
-
-/* sección ❤️ Declaração */
-/* ------------------------------------------------------- */
-#declaration {
-    margin-bottom: 30px;
-}
 #declaration article {
     text-align: center;
     color: #fff;
@@ -321,4 +309,20 @@ h2 {
 #declaration article p {
     margin-bottom: 1em;
     line-height: 1.8;
+}
+/* ======================================================= */
+/* ✨ Estilos para Telas Pequenas (Responsividade) ✨    */
+/* ======================================================= */
+
+@media (max-width: 768px) {
+    /* Esta regra será aplicada em qualquer tela com largura 
+      de até 768px (a maioria dos celulares e tablets em modo retrato).
+    */
+
+    /* Esconde o container com todas as fotos decorativas */
+    .decorative-flowers {
+        display: none;
+    }
+
+    /* Futuramente, podemos adicionar outros ajustes para mobile aqui! */
 }
