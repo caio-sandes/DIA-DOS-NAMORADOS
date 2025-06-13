@@ -208,8 +208,8 @@ h2 {
 }
 .video-navigation {
     position: relative;
-    width: 400px;
-    height: 600px;
+    width: 320px;
+    height: 570px;
     margin: 0 auto;
 }
 #prev-video-btn, #next-video-btn {
