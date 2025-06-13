@@ -200,10 +200,24 @@ function setupMusicPlayer() {
         }
     }
 
+    // ✨ FUNÇÃO PLAYTRACK ATUALIZADA E ROBUSTA ✨
     function playTrack() {
-        isPlaying = true;
-        playBtn.innerHTML = playIconSVG;
-        audio.play();
+        if (!musicPlaylist.length) return; // Não faz nada se a playlist estiver vazia
+        
+        const playPromise = audio.play();
+
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                // A música está tocando!
+                isPlaying = true;
+                playBtn.innerHTML = playIconSVG; // Mostra o ícone de PAUSE
+            }).catch(error => {
+                // O navegador bloqueou o autoplay
+                console.log("Autoplay da música seguinte bloqueado pelo navegador.", error);
+                isPlaying = false;
+                playBtn.innerHTML = pauseIconSVG; // Mostra o ícone de PLAY, indicando que precisa de um clique
+            });
+        }
     }
 
     function pauseTrack() {
@@ -215,19 +229,22 @@ function setupMusicPlayer() {
     function nextTrack() {
         trackIndex = (trackIndex + 1) % musicPlaylist.length;
         loadTrack(trackIndex);
-        if(isPlaying) playTrack();
+        // Agora, em vez de verificar 'isPlaying', tentamos tocar e a função playTrack decide o que fazer.
+        playTrack(); 
     }
 
     function prevTrack() {
         trackIndex = (trackIndex - 1 + musicPlaylist.length) % musicPlaylist.length;
         loadTrack(trackIndex);
-        if(isPlaying) playTrack();
+        playTrack();
     }
-
+    
     function updateProgress(e) {
         const { duration, currentTime } = e.srcElement;
-        const progressPercent = (currentTime / duration) * 100;
-        if(progressBar) progressBar.style.width = `${progressPercent}%`;
+        if (duration) {
+            const progressPercent = (currentTime / duration) * 100;
+            if(progressBar) progressBar.style.width = `${progressPercent}%`;
+        }
         function formatTime(time) {
             const minutes = Math.floor(time / 60);
             let seconds = Math.floor(time % 60);
@@ -252,7 +269,8 @@ function setupMusicPlayer() {
     audio.addEventListener('ended', nextTrack);
     if(progressBarWrapper) progressBarWrapper.addEventListener('click', setProgress);
     
-    loadTrack(0); // Apenas carrega a primeira música
+    // Apenas carrega a primeira música. O play será acionado pela tela de entrada.
+    loadTrack(0);
 }
 
 
@@ -275,19 +293,34 @@ function setupSplashScreen() {
         // Tenta tocar a música, o que deve funcionar por ter sido iniciado por um clique
         audio.play().then(() => {
             // Se funcionar, atualiza o ícone do player principal para "pause"
-            if (playBtn) playBtn.innerHTML = playIconSVG;
-            // A lógica interna do setupMusicPlayer irá sincronizar a variável 'isPlaying'
-            // no próximo clique em seus botões.
+            if (playBtn) {
+                playBtn.innerHTML = playIconSVG;
+                // Acessamos o 'isPlaying' de dentro da outra função para atualizá-lo.
+                // Esta não é a melhor prática, mas para este caso funciona.
+                // Uma solução mais avançada usaria "state management" ou eventos customizados.
+                // Forçamos o estado para true, já que o play funcionou.
+                const musicPlayerScope = getMusicPlayerScope();
+                if (musicPlayerScope) musicPlayerScope.setIsPlaying(true);
+            }
         }).catch(error => {
             console.log("Autoplay falhou mesmo após o clique inicial.", error);
         });
         
-        // Inicia a animação de saída da tela de entrada
         splashScreen.classList.add('fade-out');
         splashScreen.addEventListener('transitionend', () => {
             splashScreen.remove();
         });
     });
+
+    // Esta é uma forma de expor a função de "setter" para o estado 'isPlaying'
+    // para que a splash screen possa atualizá-la.
+    function getMusicPlayerScope() {
+        const musicPlayer = document.getElementById('music-player');
+        if (musicPlayer && musicPlayer._api) {
+            return musicPlayer._api;
+        }
+        return null;
+    }
 }
 
 
@@ -302,7 +335,6 @@ function initializeAllScripts() {
     setupMusicPlayer(); 
 }
 
-// Garante que os scripts rodem apenas após o carregamento completo do DOM
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeAllScripts);
 } else {
